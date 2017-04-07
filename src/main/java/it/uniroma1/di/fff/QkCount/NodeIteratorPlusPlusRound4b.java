@@ -208,7 +208,15 @@ public class NodeIteratorPlusPlusRound4b extends AbstractRound implements Tool {
 			while (it.hasNext()){
 				Text next = it.next();
 				cache.add(next);
-				if (next.toString().equals(QkCountDriver.EDGE_EXISTS_MARKER)) edgeFound = true;
+				System.out.println(next);
+				for (Text a: cache) {
+					System.out.println("print cache");
+					System.out.println(a);
+				}
+				if (next.toString().equals(QkCountDriver.EDGE_EXISTS_MARKER)) 
+				{
+					edgeFound = true;
+				}
 				else {
 					triangles++;
 				}
@@ -216,9 +224,6 @@ public class NodeIteratorPlusPlusRound4b extends AbstractRound implements Tool {
 			System.out.println("log");
 			System.out.println(triangles);
 			System.out.println(edgeFound);
-			for (Text next: cache) {
-				System.out.println(next);
-			}
 			
 			if (edgeFound && triangles > 0) 
 			{
