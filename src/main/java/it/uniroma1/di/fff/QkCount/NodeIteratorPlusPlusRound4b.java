@@ -202,9 +202,12 @@ public class NodeIteratorPlusPlusRound4b extends AbstractRound implements Tool {
 			boolean edgeFound = false;
 			long triangles = 0;
 
+			// interesting, here we can't iterator twice, we have to use a cache.
+			ArrayList<Text> cache = new ArrayList<Text>();
 			Iterator<Text> it = values.iterator();
 			while (it.hasNext()){
 				Text next = it.next();
+				cache.add(next);
 				if (next.toString().equals(QkCountDriver.EDGE_EXISTS_MARKER)) edgeFound = true;
 				else {
 					triangles++;
@@ -214,18 +217,9 @@ public class NodeIteratorPlusPlusRound4b extends AbstractRound implements Tool {
 			System.out.println(triangles);
 			System.out.println(edgeFound);
 			
-			Iterator<Text> it3 = values.iterator();
-			while (it3.hasNext()){
-				System.out.println(it3.next());
-			}
-			
 			if (edgeFound && triangles > 0) 
 			{
-				System.out.println("imhere");
-				Iterator<Text> it2 = values.iterator();
-				while (it2.hasNext()){
-					Text next = it2.next();
-					System.out.println(next);
+				for (Text next: cache) {
 					if (next.toString().equals(QkCountDriver.EDGE_EXISTS_MARKER)) 
 					{
 						continue;
