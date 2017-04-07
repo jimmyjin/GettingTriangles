@@ -215,6 +215,7 @@ public class NodeIteratorPlusPlusRound4b extends AbstractRound implements Tool {
 				Iterator<Text> it2 = values.iterator();
 				while (it2.hasNext()){
 					Text next = it2.next();
+					context.write(key, next);
 					if (next.toString().equals(QkCountDriver.EDGE_EXISTS_MARKER)) continue;
 					else {
 						String[] nbs = key.toString().split(QkCountDriver.NEIGHBORLIST_SEPARATOR);
