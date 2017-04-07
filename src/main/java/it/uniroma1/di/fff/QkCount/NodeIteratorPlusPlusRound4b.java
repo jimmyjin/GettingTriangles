@@ -211,7 +211,19 @@ public class NodeIteratorPlusPlusRound4b extends AbstractRound implements Tool {
 			}
 
 			if (edgeFound && triangles>0) 
-				context.write(key ,new Text(Long.toString(triangles)));
+			{
+				Iterator<Text> it2 = values.iterator();
+				while (it2.hasNext()){
+					Text next = it2.next();
+					if (next.toString().equals(QkCountDriver.EDGE_EXISTS_MARKER)) continue;
+					else {
+						String[] nbs = key.toString().split(QkCountDriver.NEIGHBORLIST_SEPARATOR);
+						context.write(next, new Text( nbs[0] +
+								QkCountDriver.KEY_VALUE_PAIR_SEPARATOR + nbs[1]));
+					}
+				}
+			}
+				// context.write(key ,new Text(Long.toString(triangles)));
 
 			timeLog.logCpuTime(Long.toString(triangles), edgeFound && triangles>0?"1":"0");
 		}

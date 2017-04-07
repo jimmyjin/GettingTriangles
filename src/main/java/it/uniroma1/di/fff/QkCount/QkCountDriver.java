@@ -331,7 +331,7 @@ public class QkCountDriver {
 				conf.set(ROUND_JOB_NAME_CONF_KEY, "Round4");
 
 
-				NodeIteratorPlusPlusRound4 nIRound4 = new NodeIteratorPlusPlusRound4(cCountTriangles.getUseLazyPairs());
+				NodeIteratorPlusPlusRound4b nIRound4 = new NodeIteratorPlusPlusRound4b(cCountTriangles.getUseLazyPairs());
 
 				ctl = new ClockTimeLogger("4 G", "-");
 				res = ToolRunner.run(conf, nIRound4, new String[]{
@@ -343,20 +343,20 @@ public class QkCountDriver {
 				QkCountDriver.delete(conf, fs, OUT3, true);
 
 				//Node Iterator ++  - ROUND 5
-				conf.setInt(ROUND_NUMBER_CONF_KEY,5);
-				conf.set(ROUND_JOB_NAME_CONF_KEY, "Round5");
+//				conf.setInt(ROUND_NUMBER_CONF_KEY,5);
+//				conf.set(ROUND_JOB_NAME_CONF_KEY, "Round5");
 
 
 				// NodeIteratorPlusPlusRound5 nIRound5 = new NodeIteratorPlusPlusRound5();
-				NodeIteratorPlusPlusRound5b nIRound5 = new NodeIteratorPlusPlusRound5b();
-				
-				ctl = new ClockTimeLogger("5 G", "-");
-				res = ToolRunner.run(conf, nIRound5, new String[]{
-						QkCountDriver.buildPath(conf, OUT4),
-						QkCountDriver.buildIoPath(conf, cCountTriangles.getFileOut()) + "-NI"}) + res;
-				ctl.logClockTime();
-				
-				QkCountDriver.delete(conf, fs, OUT4, true);
+//				NodeIteratorPlusPlusRound5b nIRound5 = new NodeIteratorPlusPlusRound5b();
+//				
+//				ctl = new ClockTimeLogger("5 G", "-");
+//				res = ToolRunner.run(conf, nIRound5, new String[]{
+//						QkCountDriver.buildPath(conf, OUT4),
+//						QkCountDriver.buildIoPath(conf, cCountTriangles.getFileOut()) + "-NI"}) + res;
+//				ctl.logClockTime();
+//				
+//				QkCountDriver.delete(conf, fs, OUT4, true);
 
 
 				ctlOverall.logClockTime();
