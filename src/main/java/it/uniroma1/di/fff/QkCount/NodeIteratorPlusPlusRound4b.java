@@ -207,7 +207,7 @@ public class NodeIteratorPlusPlusRound4b extends AbstractRound implements Tool {
 			Iterator<Text> it = values.iterator();
 			while (it.hasNext()){
 				Text next = it.next();
-				cache.add(next);
+				cache.add(new Text(next));
 				System.out.println(next);
 				for (Text a: cache) {
 					System.out.println("print cache");
