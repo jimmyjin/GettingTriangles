@@ -208,11 +208,6 @@ public class NodeIteratorPlusPlusRound4b extends AbstractRound implements Tool {
 			while (it.hasNext()){
 				Text next = it.next();
 				cache.add(new Text(next));
-				System.out.println(next);
-				for (Text a: cache) {
-					System.out.println("print cache");
-					System.out.println(a);
-				}
 				if (next.toString().equals(QkCountDriver.EDGE_EXISTS_MARKER)) 
 				{
 					edgeFound = true;
