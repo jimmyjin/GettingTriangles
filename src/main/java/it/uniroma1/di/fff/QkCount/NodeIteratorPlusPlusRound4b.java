@@ -214,8 +214,14 @@ public class NodeIteratorPlusPlusRound4b extends AbstractRound implements Tool {
 			System.out.println(triangles);
 			System.out.println(edgeFound);
 			
-			if (edgeFound && triangles>0) 
+			Iterator<Text> it3 = values.iterator();
+			while (it3.hasNext()){
+				System.out.println(it3.next());
+			}
+			
+			if (edgeFound && triangles > 0) 
 			{
+				System.out.println("imhere");
 				Iterator<Text> it2 = values.iterator();
 				while (it2.hasNext()){
 					Text next = it2.next();
