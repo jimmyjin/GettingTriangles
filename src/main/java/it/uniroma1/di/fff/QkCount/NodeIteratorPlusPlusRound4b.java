@@ -29,6 +29,7 @@ import org.apache.hadoop.mapreduce.Mapper;
 import org.apache.hadoop.mapreduce.Reducer;
 import org.apache.hadoop.mapreduce.lib.input.FileInputFormat;
 import org.apache.hadoop.util.Tool;
+import org.mortbay.util.StringUtil;
 
 
 public class NodeIteratorPlusPlusRound4b extends AbstractRound implements Tool {	
@@ -210,7 +211,10 @@ public class NodeIteratorPlusPlusRound4b extends AbstractRound implements Tool {
 					triangles++;
 				}
 			}
-
+			System.out.println("log");
+			System.out.println(triangles);
+			System.out.println(edgeFound);
+			
 			if (edgeFound && triangles>0) 
 			{
 				Iterator<Text> it2 = values.iterator();
