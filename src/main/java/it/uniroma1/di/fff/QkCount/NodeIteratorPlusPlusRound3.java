@@ -123,11 +123,14 @@ public class NodeIteratorPlusPlusRound3 extends AbstractRound implements Tool {
 				Collections.sort(l,new DoubleChecker());
 				for (int i = 0; i < l.size(); i++) {
 					for (int j= i+1; j<l.size(); j++){
-						context.write(newKey,
-								new Text(
-										Checker.splitNodeAndDegree(l.get(i))[0]+QkCountDriver.NEIGHBORLIST_SEPARATOR+
-										Checker.splitNodeAndDegree(l.get(j))[0]
-										));
+						double r = Math.random();
+						if (r <= 0.001) {
+							context.write(newKey,
+									new Text(
+											Checker.splitNodeAndDegree(l.get(i))[0]+QkCountDriver.NEIGHBORLIST_SEPARATOR+
+											Checker.splitNodeAndDegree(l.get(j))[0]
+											));
+						}
 					}
 				}
 			}
